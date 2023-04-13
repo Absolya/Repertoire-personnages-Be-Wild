@@ -542,7 +542,7 @@ z-index: 999:
 <a href="#Mirai" class="neutre"><span class="haptosTXT">Mirai</span> Connaissance <i>(★)</i></a>
 <a href="#Nyna" class="neutre"><span class="kopadiaTXT">Nyna</span> Connaissance <i>(★)</i></a>
 <a href="#Liang" class="neutre"><span class="kopadiaTXT">Liang-Xue</span> Le squatteur d'appart<i>(★)</i></a></div></div></div>
-   <div class="placement_info"><div class="carre_personnage"><div class="rond_parole kopadia"><div class="conteneur">♥<div class="txtcontenu">Profil Be.Love</div></div></div><div class="rond_parole kopadia" style="margin-top:50px;"><div class="conteneur">♦<div class="txtcontenu">Présentation</div></div></div><img class="theme" src="https://i.pinimg.com/564x/32/4b/c3/324bc33890f6d56420b03bbccbaee086.jpg" style="object-position:0px -90px;"></div></div><div class="Adjectif_Personnage kopadia" style="border:none;"><div>21 ans</div><div>il</div><div>policier</div></div><div class="starter"><img src="https://www.pokepedia.fr/images/3/30/Sprite_0215_%E2%99%80_HGSS.png"></div><div class="Featuring_Personnage"><div>feat. mikey - tokyo revengers</div></div></div>
+<div class="placement_info"><div class="carre_personnage"><div class="rond_parole kopadia"><div class="conteneur">♥<div class="txtcontenu">Profil Be.Love</div></div></div><div class="rond_parole kopadia" style="margin-top:50px;"><div class="conteneur">♦<div class="txtcontenu">Présentation</div></div></div><img class="theme" src="https://i.pinimg.com/564x/32/4b/c3/324bc33890f6d56420b03bbccbaee086.jpg" style="object-position:0px -90px;"></div></div><div class="Adjectif_Personnage kopadia" style="border:none;"><div>21 ans</div><div>il</div><div>policier</div></div><div class="starter"><img src="https://www.pokepedia.fr/images/3/30/Sprite_0215_%E2%99%80_HGSS.png"></div><div class="Featuring_Personnage"><div>feat. mikey - tokyo revengers</div></div></div>
   
 <!-- FIN DES PERSONNAGES -->   
    
@@ -558,58 +558,7 @@ z-index: 999:
 includeHTML();
 </script>
     
-<script>
-window.addEventListener('load', function () {
-  console.log('Cette fonction est exécutée une fois quand la page est chargée.');
-});
-    
-    $(document).ready( function() {
- // init Isotope
- var $grid = $('.grid').isotope({
-   itemSelector: '.grid-item'
- });
-
- // store filter for each group
- var filters = {};
-
- $('.filters').on( 'click', '.button', function() {
-   var $this = $(this);
-   // get group key
-   var $buttonGroup = $this.parents('.button-group');
-   var filterGroup = $buttonGroup.attr('data-filter-group');
-   // set filter for group
-   filters[ filterGroup ] = $this.attr('data-filter');
-   // combine filters
-   var filterValue = concatValues( filters );
-   // set filter for Isotope
-   $grid.isotope({ filter: filterValue });
- });
-
- // change is-checked class on buttons
- $('.button-group').each( function( i, buttonGroup ) {
-   var $buttonGroup = $( buttonGroup );
-   $buttonGroup.on( 'click', 'button', function() {
-     $buttonGroup.find('.is-checked').removeClass('is-checked');
-     $( this ).addClass('is-checked');
-   });
- });
-
-});
-
-// layout Isotope after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.isotope('layout');
-});
-
-// flatten object by concatting values
-function concatValues( obj ) {
- var value = '';
- for ( var prop in obj ) {
-   value += obj[ prop ];
- }
- return value;
-}
-</script>
+<script src="Repertoire-personnages-Be-Wild/index.js"></script>
 
 </div></div></body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
