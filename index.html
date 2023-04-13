@@ -1,0 +1,611 @@
+<style>
+:root .BW_Repertory {
+    --main-background-body: #e7e7e7;
+    --main-gradient01-body: #18191A;
+    --main-gradient02-body: #111112;
+    --header-gradient01:#F5B15D;
+    --header-gradient02:#F5A13B;
+    --color-title01:#111112;
+    --color-title02:#F5A13B;
+    --black-color-shade:#111112;
+    --black-color-shade02:#18191A;
+    --black-color-shade03:#0B0C0D;
+}
+
+.BW_Repertory {
+      background-color: var(--main-background-body);
+      background-attachment: fixed;
+      background-image: linear-gradient(359deg,var(--main-gradient01-body),var(--main-gradient02-body));
+}
+
+.BW_Repertory .Repertory_Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    background: linear-gradient(-45deg, var(--header-gradient01) 0%, var(--header-gradient02) 100%);
+    display: flex;
+    align-items: center;
+    z-index: 90;
+}
+
+.BW_Repertory .Repertory_Header .Title_Header {
+    font-size: 35px;
+    color: var(--color-title01);
+    letter-spacing:-1.2px;
+    text-align:center;
+    margin-top: 7px;
+    font-family: 'Bebas Neue', cursive;
+    margin-left:10px;
+    border-bottom:1px solid var(--black-color-shade);
+}
+
+.BW_Repertory .Repertory_Header .Title_Header span {
+    font-size: 35px;
+    color: white;
+    letter-spacing:1px;
+    text-shadow:0px 0px 4px var(--black-color-shade);
+}
+
+.BW_Repertory .Compte_Membres {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    z-index: 90;
+}
+
+.BW_Repertory .Compte {
+    font-size: 20px;
+    color: var(--color-title02);
+    margin-top: 1px;
+    margin-left:10px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.BW_Repertory .Filtre_Barre {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100vw;
+    height: 45px;
+    background: var(--black-color-shade02);
+    display: flex;
+    border-bottom:5px solid var(--header-gradient02);
+    align-items: center;
+    z-index: 90;
+}
+
+.position_filtre_ile {
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 600px;
+}
+
+
+.filters {
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    z-index: 99;
+    width:100%;
+}
+
+.button-group {
+  margin-top:8px;
+  margin-left:10px;
+}
+
+.button {
+    cursor: pointer;
+    color: #7c7c7c;
+    background-color:var(--black-color-shade03);
+    border:none;
+    padding:5px;
+    font-size:14px;
+    text-transform:uppercase;
+    text-shadow:0px 0px 2px var(--black-color-shade);
+    font-family:roboto;
+    font-weight:800;
+}
+
+.button:active, .button.is-checked {
+    color: var(--color-title02);!important;
+    font-weight: bold;
+}
+
+.grid {
+    position: fixed;
+    top: 140px;
+    margin-bottom: 100px;
+    overflow: auto;
+    height: 800px;
+    text-align: justify;
+    line-height: 100%;
+}
+
+.grid-item {
+  margin: 5px 5px;
+}
+
+.position_personnage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left:45px;
+    justify-content: flex-start;
+}
+
+.placement_info {
+  display:flex;
+}
+
+.carre_personnage {
+   width: 345px;
+    height:230px;
+    background: var(--black-color-shade03);
+}
+
+
+
+img.theme {
+    width: 325px;
+    padding: 10px;
+    display: flex;
+    object-fit: cover;
+    height: 210px;
+    filter: grayscale(1);
+    transition: all .3s ease-out;
+    outline: 1px solid #ffffff61;
+    outline-offset: -17px;
+}
+
+img.theme:hover {
+    filter: grayscale(0);
+    transition: all .3s ease-out;
+}
+
+.Personnage_Name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 344px;
+    margin-bottom:5px;
+    background: var(--black-color-shade03);
+    border-bottom:3px solid;
+}
+
+.Personnage_Name div {
+    font-size: 17px;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Roboto;
+    color: #cbcbcb;
+    padding: 5px 10px;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.Featuring_Personnage {
+    background: var(--black-color-shade03);
+    margin-top: 2px;
+}
+
+.Featuring_Personnage div {
+  color:grey;
+  padding:5px 10px 3px;
+  font-family:roboto;
+  text-transform:uppercase;
+  font-size:11px;
+}
+
+
+.Info_Personnage {
+    background: var(--black-color-shade03);
+    margin-top: 2px;
+    text-align:center;
+}
+
+.Info_Personnage div {
+  padding:5px 10px 3px;
+  font-family:roboto;
+  text-transform:uppercase;
+  font-size:15px;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.Adjectif_Personnage {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top:-35px;
+  margin-left:20px;
+  position:absolute;
+}
+
+.Adjectif_Personnage div {
+  background-color:var(--black-color-shade03);
+  margin:2px;
+  padding:2px 5px;
+  border-radius:3px;
+  font-weight:600;
+  text-transform:uppercase;
+  font-family: Roboto;
+  font-size:10px;
+} 
+
+
+.rond_parole {
+  height:20px;
+  width:30px;
+  position:absolute;
+  margin-top:25px;
+  background-color:var(--black-color-shade03);
+  margin-left:0px;
+  z-index:5;
+  transition: all .3s ease-out;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+
+.rond_parole:hover {
+  height:20px;
+  width:90px;
+  clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+  transition: all .6s ease-out;
+}
+
+.conteneura,
+.conteneur{
+  height: 20px;
+  width:110px;
+  position: relative;
+  padding:3.2px;
+}
+
+.txtcontenu {
+  position: absolute;
+  left: 0;top:0;
+  opacity: 0;
+  transition: 0.5s;
+  z-index:2;
+  text-transform:uppercase;
+  font-size:15px;
+  padding:3px 15px;
+  color:white;
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 0px 0px 2px #000;
+}
+.conteneur:hover:before{
+  opacity: 0.5;
+}
+.conteneur:hover .txtcontenu {
+  opacity: 1;
+}
+
+
+.conteneur_lien {
+position: relative;
+overflow: visible;
+}
+
+.conteneur_lien .objet_vise {
+
+}
+
+
+.conteneur_lien .infobulle {
+  position: absolute;
+  width: 344px;
+  height: 250px;
+  background-color:var(--black-color-shade03);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .6s ease-out;
+  z-index: 99;
+  color:grey;
+  font-family:roboto;
+  overflow: auto;
+}
+
+.conteneur_lien:hover .infobulle {
+opacity: 1;
+visibility: visible;
+z-index: 999:
+}
+
+.ELEMENT_PERSONNAGE {
+    text-align: center;
+    padding: 3px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 3px;
+    text-shadow: 0 0 1px black;
+    color: white;
+}
+
+ .starter {
+    position: absolute;
+    margin-top: -65px;
+    background: var(--black-color-shade03);
+    border-radius: 100%;
+    margin-left: 280px;
+    width: 65px;
+    height: 65px;
+  }
+  
+    .starter img {
+    width: 65px;
+    height: 65px;
+  }
+
+.anecdotes {
+    margin-left:5px;
+    overflow: auto;
+    color: #d7d7d7;
+    text-align: center;
+    padding: 8px 0px 1px 0px;
+    overflow: auto;
+    font-family: calibri;
+    font-size: 12px;
+    line-height: 11px;
+    text-transform:uppercase;
+}
+
+.Liens_Personnage {
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+.Liens_Personnage span:after {
+  content: "›";
+  margin-left:2px;
+  }
+
+.Liens_Personnage a {
+    color: white;
+    text-transform: uppercase;
+    display: block;
+    text-decoration:none;
+    margin-bottom: 2px;
+    font-size: 11px;
+}
+
+.positif {
+    border-left: 1px #62B966 solid;
+    padding-left: 5px;
+}
+
+.negatif {
+    border-left: 1px #C54141 solid;
+    padding-left: 5px;
+}
+
+.neutre {
+    border-left: 1px #7A7A7A solid;
+    padding-left: 5px;
+}
+
+.complique {
+    border-left: 1px #E39A37 solid;
+    padding-left: 5px;
+}
+
+
+
+/* width */
+.BW_Repertory ::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+/* Track */
+.BW_Repertory ::-webkit-scrollbar-track {
+  background: var(--black-color-shade02);
+}
+
+/* Handle */
+.BW_Repertory ::-webkit-scrollbar-thumb {
+  background: var(--black-color-shade02);
+}
+
+/* BALISES COULEURS ILES */
+
+/*textes*/
+
+ .calleisTXT {
+  color:#E3B000;
+  }
+  
+      .anthosTXT {
+  color:#149ADF;
+  }
+  
+      .haptosTXT {
+  color:#20B32C;
+  }
+  
+      .adamantiaTXT {
+  color:#AD6CE8;
+  }
+  
+      .kopadiaTXT {
+  color:#EB61EE;
+  }
+
+/*background*/
+
+ .calleis_bck {
+  color:white;
+  background-color:#E3B000; 
+  }
+  
+ .anthos_bck {
+  color:white;
+  background-color:#149ADF; 
+  }
+  
+  .haptos_bck {
+  color:white;
+  background-color:#20B32C;  
+  }
+  
+  .adamantia_bck {
+  color:white;
+  background-color:#AD6CE8; 
+  }
+  
+  .kopadia_bck {
+  color:white;
+  background-color:#EB61EE;
+  }
+
+/*text-bordure*/ 
+ .calleis {
+  color:#E3B000;
+  border-bottom:3px solid #E3B000; 
+  }
+  
+ .anthos {
+  color:#149ADF;
+  border-bottom:3px solid #149ADF; 
+  }
+  
+  .haptos {
+  color:#20B32C;
+  border-bottom:3px solid #20B32C;  
+  }
+  
+  .adamantia {
+  color:#AD6CE8;
+  border-bottom:3px solid #AD6CE8; 
+  }
+  
+  .kopadia {
+  color:#EB61EE;
+  border-bottom:3px solid #EB61EE;
+  }
+</style>
+
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>REPERTOIRE PERSONNAGES DE BE WILD</title>
+</head><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+<body class="BW_Repertory"><!-- HEADER --><div class="Repertory_Header"><div class="Title_Header">Répertoire des personnages de <span>Be Wild</span></div></div><!-- BARRE DES FILTRES --><div class="Filtre_Barre"></div><div class="filters">
+<!-- FILTRE ILE -->
+<div class="position_filtre_ile"><div class="button-group" data-filter-group="ile">
+<button class="button is-checked" style="color:grey;background:none;font-weight:bold;font-size:40px;" data-filter=".all">all</button>
+<button class="button" style="color:#E3B000;background:none;font-weight:bold;font-size:40px;" data-filter=".calleis">calléis</button>
+<button class="button" style="color:#20B32C;background:none;font-weight:bold;font-size:40px;" data-filter=".haptos">haptos</button>
+<button class="button" style="color:#149ADF;background:none;font-weight:bold;font-size:40px;" data-filter=".anthos">anthos</button> 
+<button class="button" style="color:#AD6CE8;background:none;font-weight:bold;font-size:40px;" data-filter=".adamantia">adamantia</button> 
+<button class="button" style="color:#EB61EE;background:none;font-weight:bold;font-size:40px;" data-filter=".kopadia">kopadia</button> 
+</div></div><!-- FILTRE SEXE --> 
+<div class="button-group" style="position: absolute;left: 25px;bottom: 30px;"data-filter-group="gender">
+<button class="button is-checked" data-filter=".all">all</button>
+<button class="button" data-filter=".female" style="font-size:15px;">femmes</button>
+<button class="button" data-filter=".male" style="font-size:15px;">hommes</button>
+<button class="button" data-filter=".nonbinaire" style="font-size:15px;">non-binaires</button>  
+</div><!-- FILTRE AGE --> 
+<div class="button-group" style="margin-top:10px;"data-filter-group="age">
+<button class="button is-checked" data-filter=".all">all</button>
+<button class="button" data-filter=".15">15 / 19 ans</button>
+<button class="button" data-filter=".20">20 / 29 ans</button>
+<button class="button" data-filter=".30">30 / 39 ans</button> 
+<button class="button" data-filter=".40">40 / 49 ans</button>
+<button class="button" data-filter=".50">50 / 59 ans</button>
+<button class="button" data-filter=".60">60 ans et +</button>  
+</div></div>  
+  
+ <div class="grid"> 
+ <div class="position_personnage">
+<!-- LES PERSONNAGES -->   
+   
+
+<div class="grid-item kopadia male all 20">
+<div class="conteneur_lien"><div class="objet_vise"></div><div class="Personnage_Name kopadia"><div>ASHE PORTER</div></div><div class="infobulle"><div class="ELEMENT_PERSONNAGE kopadia_bck">PROTECTEUR - COURAGEUX - IMPULSIF</div>
+    <div class="anecdotes">situation matrimonial • situation financière</div><hr><div class="ELEMENT_PERSONNAGE kopadia_bck">SES LIENS</div><div class="Liens_Personnage">
+<a href="#Myulan" class="positif"><span class="kopadiaTXT">Myulan</span> Petite amie <i>(★★★)</i></a>
+<a href="#Kiya" class="positif"><span class="kopadiaTXT">Kiya'na</span> Petite soeur de coeur <i>(★★★)</i></a>
+<a href="#Blaze" class="complique"><span class="adamantiaTXT">Blaze</span> Ancien mentor <i>(★★)</i></a>
+<a href="#Gik" class="positif"><span class="kopadiaTXT">Gik'ea</span> Meilleur ami <i>(★★★)</i></a>
+<a href="#Mirai" class="neutre"><span class="haptosTXT">Mirai</span> Connaissance <i>(★)</i></a>
+<a href="#Nyna" class="neutre"><span class="kopadiaTXT">Nyna</span> Connaissance <i>(★)</i></a>
+<a href="#Liang" class="neutre"><span class="kopadiaTXT">Liang-Xue</span> Le squatteur d'appart<i>(★)</i></a></div></div></div><div class="placement_info"><div class="carre_personnage"><div class="rond_parole kopadia"><div class="conteneur">♥<div class="txtcontenu">Profil Be.Love</div></div></div><div class="rond_parole kopadia" style="margin-top:50px;"><div class="conteneur">♦<div class="txtcontenu">Présentation</div></div></div><img class="theme" src="https://i.pinimg.com/564x/32/4b/c3/324bc33890f6d56420b03bbccbaee086.jpg" style="object-position:0px -90px;"></div></div><div class="Adjectif_Personnage kopadia" style="border:none;"><div>21 ans</div><div>il</div><div>policier</div></div><div class="starter"><img src="https://www.pokepedia.fr/images/3/30/Sprite_0215_%E2%99%80_HGSS.png"></div><div class="Featuring_Personnage"><div>feat. mikey - tokyo revengers</div></div></div></div>
+     
+
+<!-- FIN DES PERSONNAGES -->   
+   
+   
+</div>
+  
+
+
+  
+
+  
+<script>
+includeHTML();
+</script>
+<script>
+$(document).ready( function() {
+ // init Isotope
+ var $grid = $('.grid').isotope({
+   itemSelector: '.grid-item'
+ });
+
+ // store filter for each group
+ var filters = {};
+
+ $('.filters').on( 'click', '.button', function() {
+   var $this = $(this);
+   // get group key
+   var $buttonGroup = $this.parents('.button-group');
+   var filterGroup = $buttonGroup.attr('data-filter-group');
+   // set filter for group
+   filters[ filterGroup ] = $this.attr('data-filter');
+   // combine filters
+   var filterValue = concatValues( filters );
+   // set filter for Isotope
+   $grid.isotope({ filter: filterValue });
+ });
+
+ // change is-checked class on buttons
+ $('.button-group').each( function( i, buttonGroup ) {
+   var $buttonGroup = $( buttonGroup );
+   $buttonGroup.on( 'click', 'button', function() {
+     $buttonGroup.find('.is-checked').removeClass('is-checked');
+     $( this ).addClass('is-checked');
+   });
+ });
+
+});
+
+// layout Isotope after each image loads
+$grid.imagesLoaded().progress( function() {
+  $grid.isotope('layout');
+});
+
+// flatten object by concatting values
+function concatValues( obj ) {
+ var value = '';
+ for ( var prop in obj ) {
+   value += obj[ prop ];
+ }
+ return value;
+}
+</script>
+</div></div></body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+</html>
